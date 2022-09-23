@@ -22,7 +22,6 @@ class PostFactory extends Factory
             'title' => $this->faker->name(),
             'body' => $this->faker->sentence(7),
             'parent_id' => Post::query()->select('id')->inRandomOrder()->first()?->id,
-            'user_id' => User::query()->select('id')->inRandomOrder()->first()?->id ?? 0,
         ];
     }
 }

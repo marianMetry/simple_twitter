@@ -16,8 +16,10 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::factory()
-            ->hasPosts(1)
-            ->count(3)
+            ->hasPosts(1,[
+                'parent_id'=> null
+            ])
+            ->count(5)
             ->create();
     }
 }
