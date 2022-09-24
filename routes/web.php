@@ -15,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 require __DIR__ . '/auth.php';
-
+//middlewares
 Route::middleware('auth')->group(function () {
-    Route::resource('/', PostsController::class);
     Route::get('/post/{id}/like', [LikeController::class, 'likeOrDislike'])->middleware('only-post');
+    Route::resource('/posts', PostsController::class);
+    Route::get('/', function () {
+
+        return redirect('posts');
+    });
 });

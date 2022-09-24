@@ -12,7 +12,6 @@ class LikeController extends Controller
             auth()->user()->likes()->attach($id);
         else
             auth()->user()->likes()->detach($id);
-
         return response()->json([
             'success' => true,
             'message' => 'Successfully',
