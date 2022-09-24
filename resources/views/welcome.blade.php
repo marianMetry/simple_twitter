@@ -13,7 +13,7 @@
 <body>
 
     <div class="comments-container">
-        <form method="post" action="{{ route('store') }}">
+        <form method="post" action="{{ route('posts.store') }}">
             @csrf
             <h3>
                 Add New Post
@@ -49,7 +49,16 @@
                     </div>
                 </div>
             </li>
-            @include('comments')
+            <form method="post" action="{{ route('posts.store') }}">
+                @csrf
+                <input type="text" class="text" name="body" placeholder="Add Comment">
+                <input hidden type="text" class="text" name="parent_id" value="{{ $post->id }}"
+                    placeholder="Add Comment">
+                <button type="submit">Add Comment</button>
+            </form>
+            @if (count($post->Children))
+                @include('comments', ['Children' => $post->Children, 'reply' => false])
+            @endif
             <br><br><br>
         @endforeach
     </div>
