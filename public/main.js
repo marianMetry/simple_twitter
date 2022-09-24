@@ -14,7 +14,8 @@ var likeAction = function () {
             this.getElementsByTagName('span')[0].innerHTML = response.data.likes_count;
         })
         .catch((error) => {
-            console.error('Error:', error);
+            // console.error('Error:', error);
+            alert('Error! Please Try Again!');
         });
 }
 
