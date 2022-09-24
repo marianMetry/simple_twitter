@@ -40,6 +40,7 @@ class PostsController extends Controller
         Post::create([
             'title' => $request->title,
             'body' => $request->body,
+            'parent_id' => $request->parent_id??null,
             'user_id' => auth()->user()->id
         ]);
         return redirect()->back();
