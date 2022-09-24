@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/', PostsController::class);
+Route::resource('/posts', PostsController::class)->middleware(['auth']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

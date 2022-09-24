@@ -381,12 +381,6 @@ body {
         width: 320px;
     }
 }
-/* .reply-list li:before {
-    content: "";
-    width: 150px;
-    height: 2px;
-    background: #c7cacb;
-    position: absolute;
-    top: 25px;
-    left: -55px;
-} */
+.reply-list .comment-box.reply {
+    width: 37rem;
+}
