@@ -23,4 +23,9 @@ class Post extends Model
     {
         return $this->HasMany(Post::class, 'parent_id', 'id');
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'post_likes', 'post_id', 'user_id');
+    }
 }

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>{{ config('app.name') }}</title>
 </head>
 
 
@@ -32,14 +32,11 @@
                 <div class="comment-main-level">
                     <div class="comment-box">
                         <div class="comment-head">
-
-
-                            <h6 class="comment-name by-author"><a
-                                    href="http://creaticode.com/blog">{{ $post->user->name }}</a>
-                            </h6>
-                            <span>{{ $post->created_at }}</span>
+                            <h6 class="comment-name by-author">{{ $post->user->name }}</h6>
+                            <span>{{ $post->created_at->diffForHumans() }}</span>
                             <i class="fa fa-reply"></i>
                             <i class="fa fa-heart"></i>
+                            <i class="h-5 like-btn text-red-600" data-id="{{ $post->id }}">&nbsp; ♥ &nbsp; <span>{{ $post->likes_count }}</span></i>
                         </div>
                         <h2>
                         </h2>
@@ -66,6 +63,10 @@
         @endforeach
     </div>
 
+<script>
+    var baseUrl = '{{ url('/') }}';
+</script>
+<script src="{{ asset('main.js') }}"></script>
 </body>
 
 </html>
