@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PostsController;
+use App\Http\Controllers\{LikeController, PostsController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +21,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
+
+Route::middleware('auth')->group(function () {
+    Route::get('/post/{id}/like', [LikeController::class, 'likeOrDislike']);
+});

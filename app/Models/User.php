@@ -48,4 +48,18 @@ class User extends Authenticatable
         return $this->hasMany(Post::class)
             ->whereNull('parent_id');
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany(Post::class, 'post_likes', 'user_id', 'post_id')
+            ->as('like')
+            ->withTimestamps()
+            ->orderByPivot('created_at', 'desc');
+    }
+
+    public function isLikedBy($post_id)
+    {
+        return $this->likes()->where('post_id', $post_id)->exists();
+    }
+
 }
