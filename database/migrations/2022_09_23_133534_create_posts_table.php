@@ -14,7 +14,7 @@ return new class extends Migration {
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->string('body');
             $table->integer('parent_id')->nullable();
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
