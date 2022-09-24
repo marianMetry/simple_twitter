@@ -14,14 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/', PostsController::class);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 require __DIR__ . '/auth.php';
 
 Route::middleware('auth')->group(function () {
+    Route::resource('/', PostsController::class);
     Route::get('/post/{id}/like', [LikeController::class, 'likeOrDislike']);
 });
