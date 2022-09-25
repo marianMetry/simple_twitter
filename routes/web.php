@@ -18,7 +18,7 @@ require __DIR__ . '/auth.php';
 //middlewares
 Route::middleware('auth')->group(function () {
     Route::get('/post/{id}/like', [LikeController::class, 'likeOrDislike'])->middleware('only-post');
-    Route::resource('/posts', PostsController::class);
+    Route::resource('/posts', PostsController::class)->only('index', 'store');
     Route::get('/', function () {
 
         return redirect('posts');

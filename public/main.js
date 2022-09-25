@@ -10,11 +10,9 @@ var likeAction = function () {
     })
         .then((response) => response.json())
         .then((response) => {
-            // console.log('Success:', response.data.likes_count);
             this.getElementsByTagName('span')[0].innerHTML = response.data.likes_count;
         })
         .catch((error) => {
-            // console.error('Error:', error);
             alert('Error! Please Try Again!');
         });
 }

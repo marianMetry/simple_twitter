@@ -384,3 +384,14 @@ body {
 .reply-list .comment-box.reply {
     width: 37rem;
 }
+
+.alert{
+    padding: 15px 0;
+    margin: 10px 0;
+    border-radius: 5px;
+    line-height: 2
+}
+.alert-danger{
+    color: #fff;
+    background: #be3d3d;
+}

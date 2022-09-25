@@ -8,14 +8,11 @@
                                 <h6 class="comment-name"><a href="#">
                                         {{ $comment->user->name }}
                                     </a></h6>
-                                <span>{{ $comment->created_at }}</span>
+                                <span>{{ $comment->created_at?->diffForHumans() }}</span>
                                 <i class="fa fa-reply"></i>
                                 <i class="fa fa-heart"></i>
                             </div>
                             <div class="comment-content">
-                                {{ $comment->title }}
-                                <br>
-                                <br>
                                 {{ $comment->body }}
                             </div>
                             <div>
