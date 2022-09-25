@@ -16,7 +16,7 @@ class PostsController extends Controller
     {
         $posts = Post::where('parent_id', null)->with('Children')->withCount('likes')->get();
 
-        return view('welcome', compact('posts'));
+        return view('posts', compact('posts'));
     }
 
     /**

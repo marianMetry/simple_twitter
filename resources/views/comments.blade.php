@@ -5,7 +5,7 @@
                     <li>
                         <div class=" @if ($reply) reply @endif comment-box">
                             <div class="comment-head">
-                                <h6 class="comment-name"><a href="http://creaticode.com/blog">
+                                <h6 class="comment-name"><a href="#">
                                         {{ $comment->user->name }}
                                     </a></h6>
                                 <span>{{ $comment->created_at }}</span>
