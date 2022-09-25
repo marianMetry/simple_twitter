@@ -65,7 +65,7 @@
                 <button type="submit">Add Comment</button>
             </form>
             @if (count($post->Children))
-                @include('comments', ['Children' => $post->Children, 'reply' => false])
+                @include('comments', ['Children' => $post->Children, 'levelReply' => 1])
             @endif
             <br><br><br>
         @endforeach
